@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3c7fvoixg5te"
-path="res://.godot/imported/Walking (16 x 16).png-3ef7e835bbf8690dc32dd77cea2cae1f.ctex"
+uid="uid://ctc85ebxlxxus"
+path="res://.godot/imported/brick-break-2.png-2a7dea2a16deba3c5149bbf7746e7a52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprite Pack 2/Sprite Pack 2/4 - Robo Pumpkin/Walking (16 x 16).png"
-dest_files=["res://.godot/imported/Walking (16 x 16).png-3ef7e835bbf8690dc32dd77cea2cae1f.ctex"]
+source_file="res://assets/Seasonal Tilesets/Seasonal Tilesets/5 - Misc. universal tiles/brick-break-2.png"
+dest_files=["res://.godot/imported/brick-break-2.png-2a7dea2a16deba3c5149bbf7746e7a52.ctex"]
 
 [params]
 

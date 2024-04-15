@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn8xm1hi6wyl7"]
+
+[ext_resource type="PackedScene" uid="uid://c0ykw1wyk5gtw" path="res://actors/coin.tscn" id="1_mv80g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80nef"]
+
+[node name="coin_rigid" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 2
+lock_rotation = true
+
+[node name="coin" parent="." instance=ExtResource("1_mv80g")]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_80nef")

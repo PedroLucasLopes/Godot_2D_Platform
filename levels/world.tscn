@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://dosg2avvgu3bo"]
+[gd_scene load_steps=26 format=3 uid="uid://dosg2avvgu3bo"]
 
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_1r7rk"]
 [ext_resource type="Texture2D" uid="uid://dtw3cpq3ad52m" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_x2j07"]
 [ext_resource type="Texture2D" uid="uid://j312bs1qujhq" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_gjw3w"]
 [ext_resource type="PackedScene" uid="uid://qbfwl8yhtrra" path="res://actors/player.tscn" id="3_l6p2w"]
@@ -10,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://dlbhrgs0redyf" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="7_y6xc5"]
 [ext_resource type="Texture2D" uid="uid://bekw3tnxc6aq4" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="8_ru45y"]
 [ext_resource type="PackedScene" uid="uid://cotyyiqm2ct7k" path="res://actors/moving_platform.tscn" id="10_op3v1"]
+[ext_resource type="PackedScene" uid="uid://c0ykw1wyk5gtw" path="res://actors/coin.tscn" id="11_5n3ci"]
+[ext_resource type="PackedScene" uid="uid://0t23oysyk4j0" path="res://actors/enemy.tscn" id="12_bqihl"]
+[ext_resource type="PackedScene" uid="uid://dqj2le3ppvdd5" path="res://prefabs/break_box.tscn" id="14_2qx1l"]
+[ext_resource type="PackedScene" uid="uid://l4oa1cclfmog" path="res://prefabs/falling_platform.tscn" id="15_16eho"]
+[ext_resource type="Script" path="res://scripts/text.gd" id="16_f1sqi"]
+[ext_resource type="Texture2D" uid="uid://dyhqh2xc5h008" path="res://assets/Mini FX, Items & UI/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="17_5wlgp"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_50cja"]
 tile_data = PackedInt32Array(0, 65537, 1)
@@ -277,8 +284,12 @@ pattern_2 = SubResource("TileMapPattern_bdq0w")
 shader = ExtResource("5_krtvt")
 shader_parameter/move_speed = 0.04
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb877"]
+size = Vector2(20, 16)
+
 [node name="World" type="Node2D"]
 position = Vector2(152, 113)
+script = ExtResource("1_1r7rk")
 
 [node name="level" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yyb32")
@@ -292,6 +303,41 @@ layer_2/tile_data = PackedInt32Array(393213, 589825, 1, 393226, 65537, 5, 262165
 
 [node name="player" parent="." instance=ExtResource("3_l6p2w")]
 position = Vector2(-112, 92)
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(60, 86)
+
+[node name="coin2" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(80, 86)
+
+[node name="coin3" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(205, 6)
+
+[node name="coin4" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(225, 6)
+
+[node name="coin5" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(380, 37)
+
+[node name="coin6" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(400, 37)
+
+[node name="coin7" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(420, 37)
+
+[node name="coin8" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(448, -26)
+
+[node name="coin9" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(468, -26)
+
+[node name="coin10" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(488, -26)
+
+[node name="coin11" parent="coins" instance=ExtResource("11_5n3ci")]
+position = Vector2(100, 86)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -357,3 +403,58 @@ centered = false
 
 [node name="moving_platform" parent="." instance=ExtResource("10_op3v1")]
 position = Vector2(32, -24)
+
+[node name="enemy" parent="." instance=ExtResource("12_bqihl")]
+position = Vector2(296, 105)
+
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_smoothed = true
+position_smoothing_speed = 20.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = -1.0
+drag_left_margin = 0.5
+drag_top_margin = 0.33
+drag_right_margin = 0.1
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="break_box" parent="." instance=ExtResource("14_2qx1l")]
+position = Vector2(79, 67)
+
+[node name="break_box2" parent="." instance=ExtResource("14_2qx1l")]
+position = Vector2(248, 83)
+
+[node name="break_box3" parent="." instance=ExtResource("14_2qx1l")]
+position = Vector2(281, 83)
+
+[node name="falling-platform" parent="." instance=ExtResource("15_16eho")]
+position = Vector2(531, -8)
+
+[node name="falling-platform2" parent="." instance=ExtResource("15_16eho")]
+position = Vector2(598, -8)
+
+[node name="falling-platform3" parent="." instance=ExtResource("15_16eho")]
+position = Vector2(664, -8)
+
+[node name="warning_sign" type="Node2D" parent="."]
+script = ExtResource("16_f1sqi")
+
+[node name="speech_emote" type="Sprite2D" parent="warning_sign"]
+visible = false
+position = Vector2(-72, 88)
+texture = ExtResource("17_5wlgp")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="texture" type="Sprite2D" parent="warning_sign"]
+
+[node name="area_sign" type="Area2D" parent="warning_sign"]
+position = Vector2(-73, 104)
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="warning_sign/area_sign"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_tb877")
