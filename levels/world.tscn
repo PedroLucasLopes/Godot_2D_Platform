@@ -449,8 +449,6 @@ texture = ExtResource("17_5wlgp")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="texture" type="Sprite2D" parent="warning_sign"]
-
 [node name="area_sign" type="Area2D" parent="warning_sign"]
 position = Vector2(-73, 104)
 collision_layer = 2
